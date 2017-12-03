@@ -22,19 +22,19 @@ MAX_ITER = 1000;  % maximum number of iterations
 FUNC_TOL = 0.1;   % termination tolerance for F(x)
 
 fvals = [];       % store F(x) values across iterations
-progress = @(iter,x) fprintf('iter = %3d: x = %-32s, F(x) = %f\n', ...
+message = @(iter,x) fprintf('iter = %3d: x = %-32s, F(x) = %f\n', ...
     iter, mat2str(x,6), F(x));
 
 % Iterate
 iter = 1;         % iterations counter
 x = [0; 0; 0];    % initial guess
 fvals(iter) = F(x);
-progress(iter, x);
+message(iter, x);
 while iter < MAX_ITER && fvals(end) > FUNC_TOL
     iter = iter + 1;
     x = x - GAMMA * dF(x);  % gradient descent
     fvals(iter) = F(x);     % evaluate objective function
-    progress(iter, x);      % show progress
+    message(iter, x);      % show progress
 end
 
 % Plot
