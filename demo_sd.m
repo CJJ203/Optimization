@@ -5,7 +5,10 @@ warning off;
 % Example 1:
 syms x1 x2 x3;
 f = (x1-4)^4 + (x2-3)^2 +4*(x3+5)^4;
-[x,fx] = SteepestDescent(f, [x1,x2,x3], [4,2,-1], 0.0001);
+var = [x1 x2 x3];
+x0 = [4 2 -1];
+e = 1e-4;
+[x,fx] = SteepestDescent(f, var, x0, e);
 
 % Example 2:
 syms x1 x2;

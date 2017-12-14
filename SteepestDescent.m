@@ -22,7 +22,7 @@ end
 
 tolerance = 1;
 
-iter = 1;
+iter = 0;
 
 message = @(iter,x,fx,ss) fprintf('iter = %3d: x = %-24s, f(x) = %12f, step_size = %f\n', iter, mat2str(x,6), fx, ss);
 
@@ -56,5 +56,6 @@ end
 
 x = x0;
 minf = double(subs(f,var,x));
-fprintf('Answer: x = %-24s, f(x) = %f\n\n', mat2str(x0'), minf);
+fprintf('\nAnswer: x = %-24s, f(x) = %f\n\n', mat2str(x0'), minf);
+
 end
